@@ -1,1 +1,1 @@
-# Labyrinthe-exo
+Exercice de création de jeu d'un labyrinthe avec utilisation de fichiers.
