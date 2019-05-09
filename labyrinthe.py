@@ -9,4 +9,4 @@ class Labyrinthe:
     def __init__(self, robot, obstacles):
         self.robot = robot
         self.grille = {}
-        # ...
+        self.obstacles = obstacles
