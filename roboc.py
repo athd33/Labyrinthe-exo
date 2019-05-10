@@ -45,19 +45,54 @@ def init_score():                               # recherche d'anciens scores
 ####################### PROGRAMME ###########################################
 
 
+myprint("###########  JEU DU LABYRINTHE #################\n")
+
 for nom_fichier in os.listdir("cartes"):        # recherche de fichiers dans le dossier cartes
     if nom_fichier.endswith(".txt"):
         chemin = os.path.join("cartes", nom_fichier)
-        nom_carte = nom_fichier[:-3].lower()
+        nom_carte = nom_fichier[:-4].lower()
         with open(chemin, "r") as fichier:
             contenu = fichier.read()
-            # Création d'une carte, à compléter
             try:
                 carte = Carte(nom_carte, contenu)
             except:
                 print("Erreur de lecture de carte")
             else:
                 cartes.append(carte)
-print(cartes)
- 
+
+# On affiche les cartes existantes
+myprint("Voici les labyrinthes disponibles, lequel choisissez vous?  :")
+for content, carte in enumerate(cartes):
+    print(f"  {content+1} - {carte.nom}")
+
+
+labyrinthe = False                  # choix du labyrinthe
+while labyrinthe == False:
+    choice = input("Quel parcours choisissez vous? : ")
+    try:
+        choice = int(choice)
+    except:
+        ValueError('Erreur de format de choix')
+    else:
+        if choice < 1 or choice > len(cartes):
+            print("Pardon?")
+            continue
+        carte = cartes[choice -1]
+        print(f"carte choisie {carte}\n")
+    break
+
+
+
+
+
+
+
+
+game = True
+while game:
+    entry = input(" > ")
+    if entry == "q":
+        print("Fin de partie, au revoir")
+        game = False
+
 
