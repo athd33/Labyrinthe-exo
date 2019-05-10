@@ -8,7 +8,7 @@ class Carte:
 
     def __init__(self, nom, chaine):
         self.nom = nom
-        self.labyrinthe = creer_labyrinthe_depuis_chaine(chaine)
+        self.labyrinthe = chaine
 
     def __repr__(self):
         return f"<Carte {self.nom}>"

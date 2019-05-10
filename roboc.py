@@ -18,7 +18,7 @@ cartes = []
 
 #######################  FONCTIONS ########################################
 
-def myprint(mess):          #### fonction print avec sleep
+def myprint(mess):                              # fonction print avec sleep
     time.sleep(1)
     print(mess)
 
@@ -45,7 +45,7 @@ def init_score():                               # recherche d'anciens scores
 ####################### PROGRAMME ###########################################
 
 
-for nom_fichier in os.listdir("cartes"):        ###### recherche de fichiers dans le dossier cartes
+for nom_fichier in os.listdir("cartes"):        # recherche de fichiers dans le dossier cartes
     if nom_fichier.endswith(".txt"):
         chemin = os.path.join("cartes", nom_fichier)
         nom_carte = nom_fichier[:-3].lower()
@@ -67,14 +67,20 @@ for nom_fichier in os.listdir("cartes"):            # Présentation des cartes
     myprint(f"\n- Carte --> {nom_fichier[:-4]}: \n ")
     print(contenu)
 
-choix = input("\nVeuillez choisir une carte : ")
-choix = choix.lower()+".txt"
+def chose_map():
+    choix = input("\nVeuillez choisir une carte : ")
+    choix = choix.lower()+".txt"
+    return choix
 
 compilation = os.listdir("cartes")      # compilation est une liste des noms de cartes disponibles
 
-if choix in compilation:                # vérification du choix dans la liste des cartes disponibles
-    print("OK")
-else:
-    print("Pas dedans")
+choice = chose_map()
 
-    
+if choice not in compilation:  # vérification du choix dans la liste des cartes disponibles
+    print("Pas dedans")
+    chose_map()              
+else:
+    print("OK")
+
+ 
+
