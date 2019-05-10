@@ -11,4 +11,4 @@ class Carte:
         self.labyrinthe = chaine
 
     def __repr__(self):
-        return f"<Carte {self.nom}>"
+        return f"\nCarte {self.nom} : \n {self.labyrinthe}\n"

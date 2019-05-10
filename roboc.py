@@ -52,35 +52,12 @@ for nom_fichier in os.listdir("cartes"):        # recherche de fichiers dans le 
         with open(chemin, "r") as fichier:
             contenu = fichier.read()
             # Création d'une carte, à compléter
-
-myprint("\nBienvenu au jeu du labirynthe :")
-name = input("\nQuel est votre nom? : ")        # récupération du nom d'utilisateur
-name = name.lower()
-
-score = init_score()
-
-myprint(f"\nOk {name}, on va pouvoir commencer !")
-myprint("\nVoici les cartes disponibles :")
-
-
-for nom_fichier in os.listdir("cartes"):            # Présentation des cartes
-    myprint(f"\n- Carte --> {nom_fichier[:-4]}: \n ")
-    print(contenu)
-
-def chose_map():
-    choix = input("\nVeuillez choisir une carte : ")
-    choix = choix.lower()+".txt"
-    return choix
-
-compilation = os.listdir("cartes")      # compilation est une liste des noms de cartes disponibles
-
-choice = chose_map()
-
-if choice not in compilation:  # vérification du choix dans la liste des cartes disponibles
-    print("Pas dedans")
-    chose_map()              
-else:
-    print("OK")
-
+            try:
+                carte = Carte(nom_carte, contenu)
+            except:
+                print("Erreur de lecture de carte")
+            else:
+                cartes.append(carte)
+print(cartes)
  
 
