@@ -1,17 +1,10 @@
-# -*-coding:Utf-8 -*
-
-"""Ce fichier contient le code principal du jeu.
-
-Exécutez-le avec Python pour lancer le jeu.
-
+"""
+Code principal du jeu
 """
 
 import os
 import time
 from carte import Carte
-
-# On charge les cartes existantes
-
 
 ####################### VARIABLES #########################################
 cartes = []
@@ -33,13 +26,6 @@ def init_score():                               # recherche d'anciens scores
         score = {}
         print("\nVous n'avez pas de partie en cours, alors bienvenue!")
     return score
-
-
-
-
-
-
-
 
 
 ####################### PROGRAMME ###########################################
@@ -81,18 +67,17 @@ while labyrinthe == False:
         print(f"carte choisie {carte}\n")
     break
 
-
-
-
-
-
-
-
 game = True
 while game:
-    entry = input(" > ")
+    entry = input(" --|> ")
     if entry == "q":
         print("Fin de partie, au revoir")
         game = False
+    if entry == "help":
+        with open("README.md", "r") as fichier:
+            content = fichier.read()
+            myprint(f"\n{content}")
+    
+    
 
 

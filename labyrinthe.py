@@ -1,5 +1,3 @@
-# -*-coding:Utf-8 -*
-
 """Ce module contient la classe Labyrinthe."""
 
 class Labyrinthe:
@@ -10,3 +8,6 @@ class Labyrinthe:
         self.robot = robot
         self.grille = {}
         self.obstacles = obstacles
+    
+    #def __repr__(self, robot, obstacles):
+        #fonction à compléter pour l'affichage de la carte
