@@ -40,11 +40,11 @@ for nom_fichier in os.listdir("cartes"):        # recherche de fichiers dans le 
         with open(chemin, "r") as fichier:
             contenu = fichier.read()
             try:
-                carte = Carte(nom_carte, contenu)
+                carte = Carte(nom_carte, contenu)   # instanciation des cartes de classe Carte
             except:
                 print("Erreur de lecture de carte")
             else:
-                cartes.append(carte)
+                cartes.append(carte)        # remplissage de la liste carte avec les objets carte instanciés
 
 # On affiche les cartes existantes
 myprint("Voici les labyrinthes disponibles, lequel choisissez vous?  :")
