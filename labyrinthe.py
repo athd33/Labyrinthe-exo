@@ -4,49 +4,43 @@
 labyrinthe = []
 ligne = []
 
-
 class Labyrinthe:
-
-    """Classe représentant un labyrinthe."""
-
-    def __init__(self, chaine):
+    
+	"""Classe permettant de créer et d'afficher le Labyrinthe"""
+	def __init__(self, chaine):
+		self.chaine = chaine
+		self.structure = 0
+	
+	def indexation(self, chaine):
+    """Création de la grille permettant le retrouver les éléments par index"""
         self.chaine = chaine
-        content = self.chaine.split("\n")
-                                        #création de l'imbrication de liste
-        for x in content:
-            ligne.append(list(x))
-        for e in ligne:
-            labyrinthe.append(e)
-
-      
-    def __repr__(self):                 # m"thode pour afficher le labyrinthe en cours
-        return f"\n{self.chaine}"
-
-
-
-    def deplacement(self):
-                                                      # indexation des éléments dans les listes 
-                                                    
-        robot = []
-        mur = []
-        porte = []
-        
-        for index_x, x in enumerate(labyrinthe):
-            for index_y, y in enumerate(x):
-                if y == "X":
-                    robot = (index_x, index_y)
-                if y == "O":
-                    mur = (index_x, index_y)
-                if y == ".":
-                    porte = (index_x, index_y)
-
-        print(robot)                            # retourne la position de robot
- 
-
-
-
-
-
-
-
-
+	    carte_en_cours = []
+        lignes = []
+		for ligne in chaine:   #pour chaque ligne dans la chaine de caractères
+			for letter in ligne: # pour chaque lettre dans les lignes				
+				if letter != '\n':  #si la lettre est n'est pas un retour à la ligne
+					ligne.append(letter)  # on ajoute la lettre à la liste de lignes			                                
+			carte_en_cours.append(lignes) #On ajoute la ligne à la liste du niveau		
+		self.grille = carte_en_cours
+	
+	def afficher(self, fenetre):
+		"""Méthode pout afficher la grille créée avec la méthode indexation"""		
+		mur = "O"
+		robot = "X"
+		sortie = "U"
+				
+		num_ligne = 0
+		for ligne in self.grille: #pour chaque ligne dans la grille générée			
+			coordonnee = 0
+			for letter in ligne:
+				#On calcule la position réelle en pixels
+				x = num_case * nombre_lettres
+				y = num_ligne * nombre_lettres
+				if letter == 'O':		   
+					mur = (x,y)
+				elif letter == 'X':		   
+					robot = (x,y)
+				elif sprite == 'S':		  
+					sortie =(x,y)
+				num_case += 1
+			num_ligne += 1
