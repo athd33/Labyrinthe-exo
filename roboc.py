@@ -67,7 +67,7 @@ while labyrinthe == False:
         carte = cartes[choice -1]
         content = str(carte)                      # conversion de carte en str pour la passer dans la classe Labyrinthe
         labyrintheOnline = Labyrinthe(content)    # création de l'objet carte_choisie de classe Labyrinthe
-                                                  # création de l'objet carte_choisie de classe Labyrinthe 
+        print(f"PRINT labyrintheOnline : {labyrintheOnline}")  # création de l'objet carte_choisie de classe Labyrinthe 
     break
 
 game = True
@@ -80,7 +80,3 @@ while game:
     if entry == "help":
         with open("README.md", "r") as fichier:
             content = fichier.read()
-            myprint(content)
-    if entry == "s":
-        labyrintheOnline.deplacement()
-   
