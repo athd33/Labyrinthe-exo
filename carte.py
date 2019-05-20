@@ -6,7 +6,7 @@ class Carte:
 
     def __init__(self, nom, chaine):
         self.nom = nom
-        self.labyrinthe = chaine
+        self.chaine = chaine
 
     def __repr__(self):
-        return f"{self.labyrinthe}\n"
+        return f"{self.chaine}\n"

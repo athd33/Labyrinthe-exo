@@ -65,12 +65,14 @@ while labyrinthe == False:
             print("Pardon?")
             continue
         carte = cartes[choice -1]
-        carte_choisie = Labyrinthe(carte)  # création de l'objet carte_choisie de classe Labyrinthe 
+        content = str(carte)                      # conversion de carte en str pour la passer dans la classe Labyrinthe
+        labyrintheOnline = Labyrinthe(content)    # création de l'objet carte_choisie de classe Labyrinthe
+        print(f"PRINT labyrintheOnline : {labyrintheOnline}")  # création de l'objet carte_choisie de classe Labyrinthe 
     break
 
 game = True
 while game:
-    print(carte_choisie)
+    print(f"Partie en cours:\n{labyrintheOnline}")
     entry = input(" --|> ")
     if entry == "q":
         print("Fin de partie, au revoir")
