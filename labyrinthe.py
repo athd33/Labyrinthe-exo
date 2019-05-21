@@ -17,8 +17,13 @@ class Labyrinthe:
         for letter in ligne:
             self.grille.append(letter)
 
-    def __repr__(self):                 # méthode qui affiche la carte sous forme de grille (comment remettre en liste...?)
-        return f"{self.grille}"
+    def __repr__(self):                 # méthode qui affiche la carte sous forme de grille 
+        mapp = ""
+        for i in self.grille:
+            mapp += '\n'
+            for x in i:
+                mapp += x
+        return f"carte en cours :\n{mapp}"
 
 
     def position(self, element):
