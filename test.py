@@ -1,10 +1,8 @@
 
 
-
-
 labyrinthe = []
-ligne = []
 
+ligne = []
 
 with open('facile.txt', 'r') as fichier:
     chaine = fichier.read()
@@ -13,13 +11,13 @@ content = chaine.split("\n")
 print(chaine)
 
 ###############################  CREATION DU LABYRINTHE AVEC IMBRICATION DE LISTES ################################
-for x in content:
-    ligne.append(list(x))
-for e in ligne:
-    print(e)
-    labyrinthe.append(e)
+for lignes in content:
+    ligne.append(list(lignes))
+for letter in ligne:
+    print(f"letter :{letter}")
+    labyrinthe.append(letter)
 
-print(labyrinthe)
+print(f"labyrinthe{labyrinthe}")
 
 ################################ RECUPERATION DES COORDONNES DANS UN TUPLE  #########################################
 
@@ -28,8 +26,19 @@ for index_x, x in enumerate(labyrinthe):
         if y == "X":
             robot = (index_x, index_y)
 
-print(robot)
-print(labyrinthe[3][8])
+        if y == "U":
+            sortie = (index_x, index_y)
+            
+
+
+print(f"robot : {robot}")            # affiche (3,8) la position de X
+
+print(f"labyrinthe[3][8] : {robot}") # affiche X
+
+print(f"sortie : {sortie}")
+
+
+
 
 
 
