@@ -5,7 +5,7 @@ Code principal du jeu
 import os
 import time
 from carte import Carte
-from labyrinthe import Labyrinthe
+from labyrinthe import *
 
 ####################### VARIABLES #########################################
 cartes = []
@@ -66,17 +66,19 @@ while labyrinthe == False:
             continue
         carte = cartes[choice -1]
         content = str(carte)                      # conversion de carte en str pour la passer dans la classe Labyrinthe
-        labyrintheOnline = Labyrinthe(content)    # création de l'objet carte_choisie de classe Labyrinthe
-        print(f"PRINT labyrintheOnline : {labyrintheOnline}")  # création de l'objet carte_choisie de classe Labyrinthe 
+        labyrinthe_Online = Labyrinthe(content)    # création de l'objet carte_choisie de classe Labyrinthe
     break
 
 game = True
 while game:
-    print(f"Partie en cours:\n{labyrintheOnline}")
+    print(f"{labyrinthe_Online}") # affichée sous forme de liste
     entry = input(" --|> ")
+
+    #print(f"Partie en cours CLASSE LABYRINTHE:\n{labyrinthe_Online.position(entry)}")
     if entry == "q":
         print("Fin de partie, au revoir")
         game = False
     if entry == "help":
         with open("README.md", "r") as fichier:
             content = fichier.read()
+            print(content)
