@@ -2,7 +2,6 @@
 
 
 ligne = []
-entries = ["N", "S", "E", "O", "Q", "HELP"]
 
 class Labyrinthe:
 
@@ -13,6 +12,7 @@ class Labyrinthe:
         self.content = self.chaine.split("\n")
         self.grille = []
         self.mapp = ""
+        
 
         for lignes in self.content:     # création de la grille pour récupérer les coordonnées
             ligne.append(list(lignes))
@@ -36,25 +36,34 @@ class Labyrinthe:
         """
        
         self.direction = direction
-      
-        if self.direction ==  "":          # TEST : pour récupérer la position du robot
-            for index_x, x in enumerate(self.grille):
-                for index_y, y in enumerate(x):         # parcours des éléments et indexation du robot et de la sortie
-                    if y == "X":
-                        robot = (index_x, index_y)
-                        print(robot)
-                        #print(mapp)    a voir pour ajout ici..
-        if self.direction == "U":
-            for index_x, x in enumerate(self.grille):
-                for index_y, y in enumerate(x):         # parcours des éléments et indexation du robot et de la sortie
-                    if y == "U":
-                        robot = (index_x, index_y)
+        obstacles = []
+        
+        #recuperation des positions
+        for index_x, x in enumerate(self.grille):
+            for index_y, y in enumerate(x):         # parcours des éléments et indexation du robot et de la sortie
+                if y == "X":
+                    robot = (index_x, index_y)
+                    print(f"position de robot :{robot}")                #print(mapp)    a voir pour ajout ici..
+                elif y == "U":
+                    sortie = (index_x, index_y)
+                elif y == "O":
+                    mur = (index_x, index_y)
+                    obstacles.append(mur)
+                    print(f"obstacles : {obstacles}") # liste de tuples ! OK
+                elif y == ".":
+                    porte = (index_x, index_y)
+                else:
+                    pass
+                
+
 
         if self.direction == "N":
             print("DIRECTION NORD")
 
         elif self.direction == "S":
-            print(robot)
+            print("DIRECTION SUD")
+
+        elif self.direction == "S":
             print("DIRECTION SUD")
 
         elif self.direction == "E":
