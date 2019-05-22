@@ -36,31 +36,34 @@ class Labyrinthe:
         """
        
         self.direction = direction
-        obstacles = []
-        
+        obstacles = []                      # contient la liste des positions des murs "O"
+        portes = []                         # contient la liste des portes 
         #recuperation des positions
         for index_x, x in enumerate(self.grille):
             for index_y, y in enumerate(x):         # parcours des éléments et indexation du robot et de la sortie
                 if y == "X":
-                    robot = (index_x, index_y)
-                    print(f"position de robot :{robot}")                #print(mapp)    a voir pour ajout ici..
+                    robot = (index_x, index_y)      # récupération de la position de robot dans un tuple
                 elif y == "U":
-                    sortie = (index_x, index_y)
+                    sortie = (index_x, index_y)     # récupération de la position de la sortie dans un tuple
                 elif y == ".":
-                    porte = (index_x, index_y)
-                elif y == "O":
+                    porte = (index_x, index_y)      # récupération de la position des portes dans une liste
+                    portes.append(porte)
+                elif y == "O":                      # récupération de la position des murs dans une liste
                     mur = (index_x, index_y)
-                    obstacles.append(mur)
-                    #print(f"obstacles : {obstacles}") # liste de tuples ! OK
+                    obstacles.append(mur)   
                 else:
                     pass
 
 
         if self.direction == "N":
+            print(robot)
             print("DIRECTION NORD")
-            self.mapp += "test"
-            print(f"obstacles : {obstacles}")
-            
+            robotliste = list(robot)    # conversion de la position du robot de tuple à liste
+            robotliste[0] = robot[0] -1 # modification de la valeur de robot en liste
+            robot = tuple(robotliste)   # reconversion de robot en tuple pour vérif avec if in
+            print(robot)
+            return robot
+
         elif self.direction == "S":
             print("DIRECTION SUD")
 
@@ -69,6 +72,7 @@ class Labyrinthe:
 
         elif self.direction == "E":
             print("DIRECTION EST")
+
 
         elif self.direction == "O":
             print("DIRECTION OUEST")
@@ -82,7 +86,6 @@ class Labyrinthe:
                 content = fichier.read()
                 print(content)
 
-        return {self.mapp}
 
 
 
