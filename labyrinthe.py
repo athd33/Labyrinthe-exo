@@ -6,7 +6,8 @@ ligne = []
 class Labyrinthe:
 
     """Classe représentant un labyrinthe."""
-
+    
+    mapp = ""
     def __init__(self, chaine):
         self.chaine = chaine
         self.content = self.chaine.split("\n")
@@ -23,7 +24,7 @@ class Labyrinthe:
             mapp += '\n'
             for x in i:
                 mapp += x
-        return f"carte en cours :\n{mapp}"
+        return f"{mapp}"
 
 
     def position(self, element):
@@ -43,11 +44,26 @@ class Labyrinthe:
                     if y == "U":
                         robot = (index_x, index_y)
                         position = robot
-
-        
         return f"position : {position}"
 
+    def deplacer(self, direction):      # méthode permettant de gérer les déplacements
+        self.direction = direction
 
+        if self.direction == "n":
+            print("DIRECTION NORD")
+        elif self.direction == "s":
+            print("DIRECTION SUD")
+        elif self.direction == "e":
+            print("DIRECTION EST")
+        elif self.direction == "o":
+            print("DIRECTION OUEST")
+        elif self.direction == "q":
+            print("Fin de partie, au revoir")
+            exit(0)
+        elif self.direction == "help":
+            with open("README.md", "r") as fichier:
+                content = fichier.read()
+                print(content)
 
 
 

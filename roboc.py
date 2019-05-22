@@ -45,15 +45,15 @@ for nom_fichier in os.listdir("cartes"):        # recherche de fichiers dans le 
             except:
                 print("Erreur de lecture de carte")
             else:
-                cartes.append(carte)        # remplissage de la liste carte avec les objets carte instanciés
+                cartes.append(carte)                # remplissage de la liste carte avec les objets carte instanciés
 
-# On affiche les cartes existantes
+                                                    # On affiche les cartes existantes
 myprint("Voici les labyrinthes disponibles, lequel choisissez vous?  :")
 for content, carte in enumerate(cartes):
     print(f"  {content+1} - {carte.nom}")
 
 
-labyrinthe = False                  # choix du labyrinthe
+labyrinthe = False                                  # choix du labyrinthe
 while labyrinthe == False:
     choice = input("Quel parcours choisissez vous? : ")
     try:
@@ -64,21 +64,16 @@ while labyrinthe == False:
         if choice < 1 or choice > len(cartes):
             print("Pardon?")
             continue
+            
         carte = cartes[choice -1]
         content = str(carte)                      # conversion de carte en str pour la passer dans la classe Labyrinthe
         labyrinthe_Online = Labyrinthe(content)    # création de l'objet carte_choisie de classe Labyrinthe
     break
 
 game = True
+
 while game:
     print(f"{labyrinthe_Online}") # affichée sous forme de liste
     entry = input(" --|> ")
+    labyrinthe_Online.deplacer(entry) # la méthode deplacer de la classe labyrinthe gere les entrees pour les déplacements
 
-    #print(f"Partie en cours CLASSE LABYRINTHE:\n{labyrinthe_Online.position(entry)}")
-    if entry == "q":
-        print("Fin de partie, au revoir")
-        game = False
-    if entry == "help":
-        with open("README.md", "r") as fichier:
-            content = fichier.read()
-            print(content)

@@ -29,7 +29,7 @@ for index_x, x in enumerate(labyrinthe):
         if y == "U":
             sortie = (index_x, index_y)
             
-
+"""
 
 print(f"robot : {robot}")            # affiche (3,8) la position de X
 
@@ -37,3 +37,11 @@ print(f"labyrinthe[3][8] : {robot}") # affiche X
 
 print(f"sortie : {sortie}")
 
+"""
+
+
+print(f"{robot}")
+
+robot = (index_x -1, index_y +1)
+
+print(f"robot {robot}")
