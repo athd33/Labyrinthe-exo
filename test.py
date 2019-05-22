@@ -40,8 +40,7 @@ print(f"sortie : {sortie}")
 """
 
 
-print(f"{robot}")
+print(f"position robot :{robot}")
 
-robot = (index_x -1, index_y +1)
 
 print(f"robot {robot}")

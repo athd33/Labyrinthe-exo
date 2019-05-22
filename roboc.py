@@ -9,6 +9,7 @@ from labyrinthe import *
 
 ####################### VARIABLES #########################################
 cartes = []
+entries = ["N", "S", "E", "O", "Q", "HELP"]
 
 #######################  FONCTIONS ########################################
 
@@ -68,12 +69,18 @@ while labyrinthe == False:
         carte = cartes[choice -1]
         content = str(carte)                      # conversion de carte en str pour la passer dans la classe Labyrinthe
         labyrinthe_Online = Labyrinthe(content)    # création de l'objet carte_choisie de classe Labyrinthe
+        print(labyrinthe_Online)
     break
 
 game = True
-
 while game:
-    print(f"{labyrinthe_Online}") # affichée sous forme de liste
+   
+   
     entry = input(" --|> ")
-    labyrinthe_Online.deplacer(entry) # la méthode deplacer de la classe labyrinthe gere les entrees pour les déplacements
+    entry = entry.upper() # passe en majuscule les entrées
+    if entry not in entries:
+        print("Commande introuvable")
+    else:
+        print(f"{labyrinthe_Online}") # affichée sous forme de liste
+        labyrinthe_Online.deplacer(entry) # la méthode deplacer de la classe labyrinthe gere les entrees pour les déplacements
 
