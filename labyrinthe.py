@@ -46,20 +46,21 @@ class Labyrinthe:
                     print(f"position de robot :{robot}")                #print(mapp)    a voir pour ajout ici..
                 elif y == "U":
                     sortie = (index_x, index_y)
+                elif y == ".":
+                    porte = (index_x, index_y)
                 elif y == "O":
                     mur = (index_x, index_y)
                     obstacles.append(mur)
-                    print(f"obstacles : {obstacles}") # liste de tuples ! OK
-                elif y == ".":
-                    porte = (index_x, index_y)
+                    #print(f"obstacles : {obstacles}") # liste de tuples ! OK
                 else:
                     pass
-                
 
 
         if self.direction == "N":
             print("DIRECTION NORD")
-
+            self.mapp += "test"
+            print(f"obstacles : {obstacles}")
+            
         elif self.direction == "S":
             print("DIRECTION SUD")
 
