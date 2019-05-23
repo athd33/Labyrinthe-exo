@@ -86,4 +86,6 @@ while game:
         print("Commande introuvable, tapez 'help' pour obtenir de l'aide")
     else:
         labyrinthe_Online.deplacer(entry) # la méthode deplacer de la classe labyrinthe gere les entrees pour les déplacements
+        os.system("clear")
         print(labyrinthe_Online)
+

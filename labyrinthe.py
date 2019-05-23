@@ -23,6 +23,7 @@ class Labyrinthe:
         """
         Méthode qui créé la carte a afficher 
         """
+        self.mapp = ""
         for i in self.grille:
             self.mapp += '\n'
             for x in i:
@@ -104,7 +105,10 @@ class Labyrinthe:
                 robotliste[1] = robot[1] +1                                 # modification de la valeur de robot en liste
                 robot = tuple(robotliste)                                   # reconversion de robot en tuple pour vérif avec if in
                 self.grille[robotliste[0]][robotliste[1]] = "X"             # nouvelle position du robot
-            
+
+
+
+
         elif self.direction == "O":
             robotliste = list(robot)    # conversion de la position du robot de tuple à liste
             r0 = robotliste[0]
