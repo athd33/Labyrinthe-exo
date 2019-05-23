@@ -38,7 +38,8 @@ class Labyrinthe:
         self.direction = direction
         obstacles = []                      # contient la liste des positions des murs "O"
         portes = []                         # contient la liste des portes 
-        #recuperation des positions
+        sortie = ()
+                                            #recuperation des positions
         for index_x, x in enumerate(self.grille):
             for index_y, y in enumerate(x):         # parcours des éléments et indexation du robot et de la sortie
                 if y == "X":
@@ -56,32 +57,38 @@ class Labyrinthe:
 
 
         if self.direction == "N":
-            print(robot)
-            print("DIRECTION NORD")
             robotliste = list(robot)    # conversion de la position du robot de tuple à liste
+            self.grille[robotliste[0]][robotliste[1]] = " " # réafectation de valeur sur la position de robot (libère la position)
             robotliste[0] = robot[0] -1 # modification de la valeur de robot en liste
+            self.grille[robotliste[0]][robotliste[1]] = "X" # nouvelle position du robot
             robot = tuple(robotliste)   # reconversion de robot en tuple pour vérif avec if in
-            print(robot)
-            return robot
 
         elif self.direction == "S":
-            print("DIRECTION SUD")
-
-        elif self.direction == "S":
-            print("DIRECTION SUD")
+            robotliste = list(robot)
+            self.grille[robotliste[0]][robotliste[1]] = " " # réafectation de valeur sur la position de robot (libère la position)
+            robotliste[0] = robot[0] +1 # modification de la valeur de robot en liste
+            self.grille[robotliste[0]][robotliste[1]] = "X" # nouvelle position du robot
+            robot = tuple(robotliste)   # reconversion de robot en tuple pour vérif avec if in
 
         elif self.direction == "E":
-            print("DIRECTION EST")
-
-
+            robotliste = list(robot)
+            self.grille[robotliste[0]][robotliste[1]] = " " # réafectation de valeur sur la position de robot (libère la position)
+            robotliste[1] = robot[1] +1 # modification de la valeur de robot en liste
+            self.grille[robotliste[0]][robotliste[1]] = "X" # nouvelle position du robot
+            robot = tuple(robotliste)   # reconversion de robot en tuple pour vérif avec if in
+        
         elif self.direction == "O":
-            print("DIRECTION OUEST")
+            robotliste = list(robot)
+            self.grille[robotliste[0]][robotliste[1]] = " " # réafectation de valeur sur la position de robot (libère la position)
+            robotliste[1] = robot[1] -1 # modification de la valeur de robot en liste
+            self.grille[robotliste[0]][robotliste[1]] = "X" # nouvelle position du robot
+            robot = tuple(robotliste)   # reconversion de robot en tuple pour vérif avec if in
 
-        elif self.direction == "Q":
+        elif self.direction == "Q":         # sauvegarde à faire
             print("Fin de partie, au revoir")
             exit(0)
 
-        elif self.direction == "HELP":
+        elif self.direction == "HELP":          # affiche le texte de présentation 
             with open("README.md", "r") as fichier:
                 content = fichier.read()
                 print(content)
