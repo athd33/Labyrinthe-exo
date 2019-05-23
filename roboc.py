@@ -73,12 +73,11 @@ while labyrinthe == False:
 
 game = True
 while game:  
-    print(labyrinthe_Online)
-
     entry = input(" --|> ")
     entry = entry.upper() # passe en majuscule les entrées
     if entry not in entries:
         print("Commande introuvable, tapez 'help' pour obtenir de l'aide")
     else:
         labyrinthe_Online.deplacer(entry) # la méthode deplacer de la classe labyrinthe gere les entrees pour les déplacements
-    
+        print(labyrinthe_Online)
+

@@ -60,8 +60,11 @@ class Labyrinthe:
             robotliste = list(robot)    # conversion de la position du robot de tuple à liste
             self.grille[robotliste[0]][robotliste[1]] = " " # réafectation de valeur sur la position de robot (libère la position)
             robotliste[0] = robot[0] -1 # modification de la valeur de robot en liste
-            self.grille[robotliste[0]][robotliste[1]] = "X" # nouvelle position du robot
             robot = tuple(robotliste)   # reconversion de robot en tuple pour vérif avec if in
+            if robot in obstacles:
+                print("AIE")
+            self.grille[robotliste[0]][robotliste[1]] = "X" # nouvelle position du robot
+
 
         elif self.direction == "S":
             robotliste = list(robot)
