@@ -38,7 +38,6 @@ class Labyrinthe:
         self.direction = direction
         obstacles = []                      # contient la liste des positions des murs "O"
         portes = []                         # contient la liste des portes 
-        sortie = ()
                                             #recuperation des positions
         for index_x, x in enumerate(self.grille):
             for index_y, y in enumerate(x):         # parcours des éléments et indexation du robot et de la sortie
@@ -57,35 +56,70 @@ class Labyrinthe:
 
 
         if self.direction == "N":
+    
             robotliste = list(robot)    # conversion de la position du robot de tuple à liste
-            self.grille[robotliste[0]][robotliste[1]] = " " # réafectation de valeur sur la position de robot (libère la position)
-            robotliste[0] = robot[0] -1 # modification de la valeur de robot en liste
-            robot = tuple(robotliste)   # reconversion de robot en tuple pour vérif avec if in
-            if robot in obstacles:
-                print("AIE")
-            self.grille[robotliste[0]][robotliste[1]] = "X" # nouvelle position du robot
+            r0 = robotliste[0]-1
+            r1 = robotliste[1]
+            econtrol = self.grille[r0][r1]                  #variable qui va servir au controle de la valeur de la future position    
+
+            if econtrol == 'U':
+                print("SORTIE")
+
+
+            if econtrol != "O":                                             # vérification de la position suivante
+                self.grille[robotliste[0]][robotliste[1]] = " "             # réafectation de valeur sur la position de robot (libère la position)
+                robotliste[0] = robot[0] -1                                 # modification de la valeur de robot en liste
+                robot = tuple(robotliste)                                   # reconversion de robot en tuple pour vérif avec if in
+                self.grille[robotliste[0]][robotliste[1]] = "X"             # nouvelle position du robot
 
 
         elif self.direction == "S":
-            robotliste = list(robot)
-            self.grille[robotliste[0]][robotliste[1]] = " " # réafectation de valeur sur la position de robot (libère la position)
-            robotliste[0] = robot[0] +1 # modification de la valeur de robot en liste
-            self.grille[robotliste[0]][robotliste[1]] = "X" # nouvelle position du robot
-            robot = tuple(robotliste)   # reconversion de robot en tuple pour vérif avec if in
+            robotliste = list(robot)    # conversion de la position du robot de tuple à liste
+            r0 = robotliste[0]+1
+            r1 = robotliste[1]
+            econtrol = self.grille[r0][r1]                  #variable qui va servir au controle de la valeur de la future position    
+
+            if econtrol == 'U':
+                print("SORTIE")
+
+
+            if econtrol != "O":                                             # vérification de la position suivante
+                self.grille[robotliste[0]][robotliste[1]] = " "             # réafectation de valeur sur la position de robot (libère la position)
+                robotliste[0] = robot[0] +1                                 # modification de la valeur de robot en liste
+                robot = tuple(robotliste)                                   # reconversion de robot en tuple pour vérif avec if in
+                self.grille[robotliste[0]][robotliste[1]] = "X"             # nouvelle position du robot
+            
 
         elif self.direction == "E":
-            robotliste = list(robot)
-            self.grille[robotliste[0]][robotliste[1]] = " " # réafectation de valeur sur la position de robot (libère la position)
-            robotliste[1] = robot[1] +1 # modification de la valeur de robot en liste
-            self.grille[robotliste[0]][robotliste[1]] = "X" # nouvelle position du robot
-            robot = tuple(robotliste)   # reconversion de robot en tuple pour vérif avec if in
-        
+            robotliste = list(robot)    # conversion de la position du robot de tuple à liste
+            r0 = robotliste[0]
+            r1 = robotliste[1]+1
+            econtrol = self.grille[r0][r1]                  #variable qui va servir au controle de la valeur de la future position    
+
+            if econtrol == 'U':
+                print("SORTIE")
+
+            if econtrol != "O":                                             # vérification de la position suivante
+                self.grille[robotliste[0]][robotliste[1]] = " "             # réafectation de valeur sur la position de robot (libère la position)
+                robotliste[1] = robot[1] +1                                 # modification de la valeur de robot en liste
+                robot = tuple(robotliste)                                   # reconversion de robot en tuple pour vérif avec if in
+                self.grille[robotliste[0]][robotliste[1]] = "X"             # nouvelle position du robot
+            
         elif self.direction == "O":
-            robotliste = list(robot)
-            self.grille[robotliste[0]][robotliste[1]] = " " # réafectation de valeur sur la position de robot (libère la position)
-            robotliste[1] = robot[1] -1 # modification de la valeur de robot en liste
-            self.grille[robotliste[0]][robotliste[1]] = "X" # nouvelle position du robot
-            robot = tuple(robotliste)   # reconversion de robot en tuple pour vérif avec if in
+            robotliste = list(robot)    # conversion de la position du robot de tuple à liste
+            r0 = robotliste[0]
+            r1 = robotliste[1]-1
+            econtrol = self.grille[r0][r1]                  #variable qui va servir au controle de la valeur de la future position    
+            
+            if econtrol == 'U':
+                print("SORTIE")
+
+            if econtrol != "O":                                             # vérification de la position suivante
+                self.grille[robotliste[0]][robotliste[1]] = " "             # réafectation de valeur sur la position de robot (libère la position)
+                robotliste[1] = robot[1] -1                                 # modification de la valeur de robot en liste
+                robot = tuple(robotliste)                                   # reconversion de robot en tuple pour vérif avec if in
+                self.grille[robotliste[0]][robotliste[1]] = "X"             # nouvelle position du robot
+            
 
         elif self.direction == "Q":         # sauvegarde à faire
             print("Fin de partie, au revoir")

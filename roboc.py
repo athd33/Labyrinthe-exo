@@ -5,11 +5,13 @@ Code principal du jeu
 import os
 import time
 from carte import Carte
-from labyrinthe import *
+from labyrinthe import Labyrinthe
 
 ####################### VARIABLES #########################################
 cartes = []
 entries = ["N", "S", "E", "O", "Q", "HELP", "ROBOT"]
+game = True
+labyrinthe = False
 
 #######################  FONCTIONS ########################################
 
@@ -54,24 +56,29 @@ for content, carte in enumerate(cartes):
     print(f"  {content+1} - {carte.nom}")
 
 
-labyrinthe = False                                  # choix du labyrinthe
-while labyrinthe == False:
+while labyrinthe == False:                          # choix du labyrinthe
     choice = input("Quel parcours choisissez vous? : ")
+    choice = choice.upper()
     try:
         choice = int(choice)
     except:
         ValueError('Erreur de format de choix')
-    else:
+        continue
+    else:            
         if choice < 1 or choice > len(cartes):
             print("Pardon?")
-            continue
-            
-        carte = cartes[choice -1]
-        content = str(carte)                      # conversion de carte en str pour la passer dans la classe Labyrinthe
-        labyrinthe_Online = Labyrinthe(content)    # création de l'objet carte_choisie de classe Labyrinthe
+            continue       
+        else:  
+            carte = cartes[choice -1]
+            content = str(carte)                      # conversion de carte en str pour la passer dans la classe Labyrinthe
+            labyrinthe_Online = Labyrinthe(content)    # création de l'objet carte_choisie de classe Labyrinthe
     break
 
-game = True
+print(labyrinthe_Online)
+
+
+
+
 while game:  
     entry = input(" --|> ")
     entry = entry.upper() # passe en majuscule les entrées
@@ -80,4 +87,3 @@ while game:
     else:
         labyrinthe_Online.deplacer(entry) # la méthode deplacer de la classe labyrinthe gere les entrees pour les déplacements
         print(labyrinthe_Online)
-
