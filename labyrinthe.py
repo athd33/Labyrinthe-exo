@@ -48,3 +48,5 @@ print(f"Vous avez choisi la carte suivante:\n{labyrinthe_Online}")
 player = Robot(labyrinthe_Online.content) # instanciation de player, objet de classe Robot avec la liste de chaines en parametre
 
 print(f"carte affichée depuis la classe Robot {player}")
+
+print(player.robot)
