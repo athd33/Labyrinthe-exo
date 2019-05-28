@@ -3,7 +3,6 @@ import time
 from carte import *
 
 ####################### VARIABLES #########################################
-entries = ["N", "S", "E", "O"]
 grille = []
 murs = []
 portes = []
@@ -12,7 +11,8 @@ portes = []
 
 class Robot:
     """
-    Classe définissant le robot et ses déplacements dans la carte
+    Classe définissant le robot et ses déplacements dans la carte. L'initialistation permet de récupérer les position
+    de tous les éléments de la carte
     """
     def __init__(self, chaine ):
         self.chaine = chaine
@@ -34,9 +34,7 @@ class Robot:
                     self.obstacles.append(mur)   
                 else:
                     pass
-    
-        
-            
+                   
 
     def __repr__(self):
         self.mapp = ""
@@ -45,3 +43,11 @@ class Robot:
             for x in i:
                 self.mapp += x
         return f"{self.mapp}"
+
+    def deplacer(self, direction):
+        entries = ["N", "S", "E", "O"]
+
+        if direction not in entries:
+            print("Direction inconnue")
+        else:
+            print("direction OK")

@@ -5,7 +5,7 @@ from fonctions import *
 from roboc import Robot
 
 ############ VARIABLES ###################
-
+game = True
 choice = False
 general_commands = ["Q", "HELP"]
 
@@ -49,4 +49,17 @@ player = Robot(labyrinthe_Online.content) # instanciation de player, objet de cl
 
 print(f"carte affichée depuis la classe Robot {player}")
 
-print(player.robot)
+while game:                     # commandes en jeu
+    entry_lower = input(">")
+    entry = entry_lower.upper()
+    print(entry)
+    if entry == "Q":
+        print("Fin de partie")
+        exit(0)
+    
+    elif entry == "HELP":
+        with open("README.md", "r") as doc:
+            content = doc.read()
+            print(content)
+    else:
+        print(player.deplacer(entry)) # utilisation de la méthode deplacer de la classe Robot instanciée avec player
