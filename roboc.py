@@ -6,6 +6,8 @@ from carte import *
 grille = []
 murs = []
 portes = []
+index_x = 0
+index_y = 0
 #######################  FONCTIONS ########################################
 
 
@@ -34,20 +36,27 @@ class Robot:
                     self.obstacles.append(mur)   
                 else:
                     pass
+                
                    
 
-    def __repr__(self):
+    def __repr__(self):   # méthode d'affichage de la carte
         self.mapp = ""
         for i in self.chaine:
             self.mapp += '\n'
             for x in i:
                 self.mapp += x
-        return f"{self.mapp}"
+        return f"carte en jeu {self.mapp}"
 
-    def deplacer(self, direction):
+    def deplacer(self, direction):   # méthode pour les déplacements du robot
         entries = ["N", "S", "E", "O"]
 
         if direction not in entries:
             print("Direction inconnue")
-        else:
-            print("direction OK")
+        elif direction == "N":
+                self.robot[index_y] -= 1
+        elif direction == "S":
+                self.robot[index_y] += 1
+        elif direction == "E":
+                self.robot[index_x] += 1
+        elif direction == "O":
+                self.robot[index_x] -= 1
