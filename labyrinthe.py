@@ -42,9 +42,11 @@ while choice != True:
 
 print(f"Vous avez choisi la carte suivante:\n{labyrinthe_Online}")
 
+print(f"positions : {labyrinthe_Online.obstacles}") # vérifications des coordonnees
+
 player = Robot(labyrinthe_Online.grille) # instanciation de player, objet de classe Robot avec la liste de chaines en parametre
 
-print(f"player.grille: {player.chaine}")
+print(f"player.chaine: {player.chaine}")
 while game:                     # commandes en jeu
     entry_lower = input(">")
     entry = entry_lower.upper()

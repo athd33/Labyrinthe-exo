@@ -22,14 +22,15 @@ class Carte_Online:
         self.lignes = self.chaine.split("\n")
         self.grille = []                # chaine destructuree , chaque element est disponible
         self.obstacles = []
+        self.sortie = []
+
         for ligne in self.lignes:   # boucle permettant de destructurer
             self.grille.append([c for c in ligne])
 
-        for index_x, x in enumerate(self.chaine):           # indexation des éléments de la carte
+        for index_x, x in enumerate(self.lignes):           # indexation des éléments de la carte
                     for index_y, y in enumerate(x):
                         if y == "X":
                             self.robot = [index_x, index_y]        # récupération de la position de robot dans une liste
-                            self.grille += "X"
                         elif y == "U":
                             self.sortie = [index_x, index_y]     # récupération de la position de la sortie dans une liste
                         elif y == ".":
@@ -51,4 +52,4 @@ class Carte_Online:
     
         self.mappToDisplay = "\n".join(self.grilleToList)
 
-        return f"{self.mappToDisplay}"
+        return f"{self.robot}"
