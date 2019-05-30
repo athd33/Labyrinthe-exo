@@ -39,14 +39,10 @@ while choice != True:
             choice = True
 
 
+player = Robot(labyrinthe_Online) # instanciation de player, objet de classe Robot avec la liste de chaines en parametre
 
-print(f"Vous avez choisi la carte suivante:\n{labyrinthe_Online}")
-
-print(f"positions : {labyrinthe_Online.obstacles}") # vérifications des coordonnees
-
-player = Robot(labyrinthe_Online.grille) # instanciation de player, objet de classe Robot avec la liste de chaines en parametre
-
-print(f"player.chaine: {player.chaine}")
+print(labyrinthe_Online)
+    
 while game:                     # commandes en jeu
     entry_lower = input(">")
     entry = entry_lower.upper()
@@ -61,3 +57,4 @@ while game:                     # commandes en jeu
             print(content)
     else:
         print(player.deplacer(entry)) # utilisation de la méthode deplacer de la classe Robot instanciée avec player
+        print(player)

@@ -52,4 +52,4 @@ class Carte_Online:
     
         self.mappToDisplay = "\n".join(self.grilleToList)
 
-        return f"{self.robot}"
+        return self.mappToDisplay
