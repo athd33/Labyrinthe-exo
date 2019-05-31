@@ -1,17 +1,16 @@
 
 import os
-from carte import *
+from carte import Carte, Carte_Online
+from roboc import Robot
 from fonctions import *
-from roboc import *
 ############ VARIABLES ###################
 game = True
 choice = False
 general_commands = ["Q", "HELP"]
-
+entries = [ "N", "S", "E", "O"]
 ############ PROGRAMME PRINCIPAL #################
 
-
-print("Début du jeu")
+print("\n######### LABYRINTHE ##########\n")
 
 instance_map()
 
@@ -46,15 +45,20 @@ print(labyrinthe_Online)
 while game:                     # commandes en jeu
     entry_lower = input(">")
     entry = entry_lower.upper()
-    print(entry)
+    
     if entry == "Q":
         print("Fin de partie")
         exit(0)
-    
+
     elif entry == "HELP":
         with open("README.md", "r") as doc:
             content = doc.read()
             print(content)
     else:
-        print(player.deplacer(entry)) # utilisation de la méthode deplacer de la classe Robot instanciée avec player
-        print(player)
+        if entry in entries:
+            print(player.deplacer(entry)) # utilisation de la méthode deplacer de la classe Robot instanciée avec player
+            print(player)
+        else:
+            print("Direction inconnue")
+            
+    

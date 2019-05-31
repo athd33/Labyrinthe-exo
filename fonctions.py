@@ -1,13 +1,8 @@
 import os
 from carte import *
-
-
-################### VARIABLES ####################
+from roboc import *
 
 cartes = []
-
-
-###################### FONCTIONS ####################
 
 def init_score():                               # recherche d'anciens scores
     try:
@@ -38,3 +33,4 @@ def choose_map():                                       # fonction pour afficher
     print("Voici les labyrinthes disponibles, lequel choisissez vous?  :")
     for content, carte in enumerate(cartes):
         print(f"  {content+1} - {carte.nom}")
+
