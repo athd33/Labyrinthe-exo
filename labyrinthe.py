@@ -55,7 +55,7 @@ while game:                     # commandes en jeu
             print(content)
     else:
         if entry in entries:
-            print(player.deplacer(entry)) # utilisation de la méthode deplacer de la classe Robot instanciée avec player
+            player.deplacer(entry) # utilisation de la méthode deplacer de la classe Robot instanciée avec player
             print(labyrinthe_Online)
         else:
             print("Direction inconnue")

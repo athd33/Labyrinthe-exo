@@ -38,8 +38,8 @@ class Robot:
                 if nextCase == "O":
                     pass
                 else:
-                    self.grille[Rx][Ry] = " "
-                    self.grille[Rx][Ry -1] = "X" 
+                    self.grille[Rx][Ry] = " "   # libération de la case
+                    self.grille[Rx][Ry -1] = "X"  # remplissage de la nouvelle position du joueur
                     robot[1] -= 1
 
             if direction == "E":
@@ -65,3 +65,5 @@ class Robot:
                     self.grille[Rx][Ry] = " "
                     self.grille[Rx +1][Ry] = "X" 
                     robot[0] += 1
+        
+        return self.grille # retourne les coordonnees de la nouvelle grille (origine du pb NONE)

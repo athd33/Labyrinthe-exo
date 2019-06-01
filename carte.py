@@ -21,9 +21,7 @@ class Carte_Online:
         self.lignes = self.chaine.split("\n")
         self.grille = []                # chaine destructuree , chaque element est disponible
         self.obstacles = []
-        self.sortie = []
-        self.robot = None
-        
+
         for ligne in self.lignes:   # boucle permettant de destructurer
             self.grille.append([c for c in ligne])
 
