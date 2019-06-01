@@ -10,19 +10,7 @@ class Robot:
     def __init__(self, labyrinthe_Online ):     #classe instanciée avec la classe carte en paramètre
         self.labyrinthe_Online = labyrinthe_Online
 
-    def __repr__(self):
-        """
-        Méthode d'affichage de la carte
-        """    
-        self.grilleToList = []
-        grille = self.grille
-
-        for i in grille:   # pour tous les elements de self.grille
-            self.grilleToList.append(''.join(i)) # remplissage de mappToDisplay avec les elements sans espace    
-        self.mappToDisplay = "\n".join(self.grilleToList)
-        
-        return f"{self.mappToDisplay}"
-
+   
     def deplacer(self, direction):   # méthode pour les déplacements du robot
         """
         Méthode qui récupère le choix de direction de l'utilisateur et modifie en fonction, les éléments de la grille
@@ -40,7 +28,6 @@ class Robot:
             nextCase = self.grille[Rx +1][Ry]
         elif direction == "N":
             nextCase = self.grille[Rx -1][Ry]
-
         if nextCase == "U":
             print('BRAVO, vous avez trouvé la sortie!')
             print("FIN DE PARTIE")

@@ -12,7 +12,6 @@ class Carte:
     def __repr__(self):
         return f"{self.chaine}\n"
             
-
 class Carte_Online:
     """
     Objet définissant la carte à afficher en cours de partie
@@ -23,7 +22,8 @@ class Carte_Online:
         self.grille = []                # chaine destructuree , chaque element est disponible
         self.obstacles = []
         self.sortie = []
-
+        self.robot = None
+        
         for ligne in self.lignes:   # boucle permettant de destructurer
             self.grille.append([c for c in ligne])
 
